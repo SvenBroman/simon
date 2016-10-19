@@ -1,0 +1,111 @@
+.container {
+  margin: auto;
+  width: 460px;
+  height: 460px;
+  border: 1px solid black;
+  position: relative;
+}
+
+#blue {
+  width: 200px;
+  height: 200px;
+  background: #094A8F;
+  border: 10px solid black;
+  border-bottom: 20px solid;
+  border-right: 20px solid;
+  border-radius: 0 0 220px 0;
+  -moz-border-radius: 0 0 220px 0;
+  -webkit-border-radius: 0 0 220px 0;
+  /* float: right; */
+  z-index: 1;
+ /*  position: relative; */
+ left:50%;
+ position:absolute;
+ top:50%;
+}
+
+#yellow {
+  width: 200px;
+  height: 200px;
+  background: #CCA707;
+  border: 10px solid black;
+  border-bottom: 20px solid;
+  border-left: 20px solid;
+  border-radius: 0 0 0 220px;
+  -moz-border-radius: 0 0 0 220px;
+  -webkit-border-radius: 0 0 0 220px;
+  right:50%;
+  top:50%;
+  position: absolute;
+  z-index: 1;
+}
+
+#red {
+  width: 200px;
+  height: 200px;
+  background: #9F0F17;
+  border: 10px solid black;
+  border-top: 20px solid;
+  border-right: 20px solid;
+  border-radius: 0 220px 0 0;
+  -moz-border-radius: 0 220px 0 0;
+  -webkit-border-radius: 0 220px 0 0;
+  left:50%;
+ position:absolute;
+bottom:50%;
+  z-index: 1;
+}
+
+#green {
+  width: 200px;
+  height: 200px;
+  background: green;
+  border: 10px solid black;
+  border-top: 20px solid;
+  border-left: 20px solid;
+  border-radius: 220px 0 0 0;
+  -moz-border-radius: 220px 0 0 0;
+  -webkit-border-radius: 220px 0 0 0;
+ right:50%;
+ position:absolute;
+ bottom:50%;
+  z-index: 1;
+}
+
+.control {
+  width: 200px;
+  height: 200px;
+  border: 15px solid black;
+  border-radius: 200px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: white;
+  margin-left: 115px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+#display {
+  text-align: center;
+  width: 50px;
+  height: 40px;
+  color: red;
+  background-color: black;
+  margin-left: 30px;
+  border-radius: 5px;
+  font-size: 2em;
+}
+
+button {
+  text-align: center;
+  margin-left: 37%;
+  margin-top: 5px;
+}
+sup{
+  font-size:.5em;
+}
