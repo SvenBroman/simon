@@ -81,7 +81,7 @@ bottom:50%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  background-color: white;
+  background-color: #AEAEAE;
   margin-left: 115px;
 }
 
@@ -92,7 +92,7 @@ h1 {
 
 #display {
   text-align: center;
-  width: 50px;
+  width: 40px;
   height: 40px;
   color: red;
   background-color: black;

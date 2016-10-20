@@ -1,3 +1,12 @@
+var count=0;
+var turn="simon";
+var playerScore=0;
+var playerSeq = [];
+var compSeq = [];
+var moves=[triggerRed,triggerGreen,triggerBlue,triggerYellow];
+var randMove = Math.floor((Math.random() * 4) + 1);
+var a = 0;
+console.log(randMove);
 //Set up color changes for each section when clicked
 function mouseDownB() {
   document.getElementById("blue").style.background = "blue";
@@ -31,7 +40,48 @@ function mouseUpY() {
   document.getElementById("yellow").style.background = "#CCA707";
 }
 
-$(document).ready(function() {
+function triggerBlue() {
+  mouseDownB();
+ // document.getElementById("blue").style.background = "blue";
+ setTimeout(mouseUpB, 300);
+ objBlue.play();
+}
+function triggerRed() {
+  mouseDownR();
+ // document.getElementById("blue").style.background = "blue";
+ setTimeout(mouseUpR, 300);
+ objRed.play();
+}
+function triggerGreen() {
+  mouseDownG();
+ // document.getElementById("blue").style.background = "blue";
+ setTimeout(mouseUpG, 300);
+ objGreen.play();
+}
+function triggerYellow() {
+  mouseDownY();
+ // document.getElementById("blue").style.background = "blue";
+ setTimeout(mouseUpY, 300);
+ objYellow.play();
+}
+function sequence() {
+   var randMove = Math.floor((Math.random() * 4) +1) ;
+  var x = randMove - 1;
+  console.log(moves[x]);
+  setTimeout(moves[x], a+=500);
+ 
+ // a = a * 2;
+  //setTimeout(triggerGreen, 1000);
+  //setTimeout(triggerYellow, 1500);
+  //setTimeout(triggerBlue, 2000);
+  //var randMove = Math.floor((Math.random() * 4) +1) ;
+  count ++;
+  //var x = randMove - 1;
+  console.log(a);
+  //console.log(count);
+  $("#display").html(count);
+}
+//$(document).ready(function() {
   //Set up sounds for each section
   var objBlue = document.createElement("audio");
   objBlue.src = "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3";
@@ -53,5 +103,5 @@ $(document).ready(function() {
   $(".playSoundYellow").click(function() {
     objYellow.play();
   });
-
-});
+ 
+// });
