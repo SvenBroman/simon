@@ -67,17 +67,24 @@ function triggerYellow() {
 function sequence() {
    var randMove = Math.floor((Math.random() * 4) +1) ;
   var x = randMove - 1;
+  a = 0;
   console.log(moves[x]);
-  setTimeout(moves[x], a+=500);
- 
+  compSeq.push(moves[x]);
+  //setTimeout(moves[x], a += 500);
+  console.log(compSeq);
+  count ++;
+ for(var i=0; i <= count; i++) {
+   setTimeout(compSeq[i], a += 1000); 
+   console.log("compSeq "+ compSeq[i]);
+ }
  // a = a * 2;
   //setTimeout(triggerGreen, 1000);
   //setTimeout(triggerYellow, 1500);
   //setTimeout(triggerBlue, 2000);
   //var randMove = Math.floor((Math.random() * 4) +1) ;
-  count ++;
+  //count ++;
   //var x = randMove - 1;
-  console.log(a);
+  //console.log(a);
   //console.log(count);
   $("#display").html(count);
 }
@@ -87,21 +94,27 @@ function sequence() {
   objBlue.src = "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3";
   $(".playSoundBlue").click(function() {
     objBlue.play();
+    playerSeq.push(moves[2]);
   });
   var objRed = document.createElement("audio");
   objRed.src = "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3";
   $(".playSoundRed").click(function() {
     objRed.play();
+    playerSeq.push(moves[0]);
   });
   var objGreen = document.createElement("audio");
   objGreen.src = "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3";
   $(".playSoundGreen").click(function() {
     objGreen.play();
+    playerSeq.push(moves[1]);
   });
   var objYellow = document.createElement("audio");
   objYellow.src = "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3";
   $(".playSoundYellow").click(function() {
     objYellow.play();
+    playerSeq.push(moves[3]);
+    console.log("Player "+ playerSeq);
+    console.log("Comp "+ compSeq)
   });
  
 // });
