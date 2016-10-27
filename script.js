@@ -1,5 +1,5 @@
 var count = 0;
-var turn = "simon";
+var turn = "none";
 var playerScore = 0;
 var playerSeq = [];
 var compSeq = [];
