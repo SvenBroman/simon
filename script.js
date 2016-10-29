@@ -7,6 +7,7 @@ var comArr = [];
 var moves = [triggerRed, triggerGreen, triggerBlue, triggerYellow];
 var colors = [0, 1, 2, 3];
 var test = 0;
+var winCount = 0;
 //var colors = [red1, green2, blue3, yellow4];
 var randMove = Math.floor((Math.random() * 4) + 1);
 var a = 0;
@@ -68,13 +69,15 @@ function triggerYellow() {
   objYellow.play();
 }
 function start() {
+  $("#win").html("Simon<sup>&reg</sup>");
+  winCount = 0;
    count = 0;
  turn = "simon";
  playerScore = 0;
  playerSeq = [];
  compSeq = [];
  comArr = [];
-  sequence();
+ setTimeout(sequence, 200); 
   
 }
 function sequence() {
@@ -119,14 +122,26 @@ function gameTest() {
       setTimeout(rePlayMoves, 800);
     } else if (playerSeq.length == comArr.length) {
       console.log("Ok!");
+      winCount++;
       turn = "simon";
+      if(winCount > 6){
+        winner();
+      }
       setTimeout(sequence, 500);
-     // sequence();
+     // if(winCount == 7){
+      //  winner();
+      //}
     }
   }
   }
 }
-
+function winner() {
+  turn = "end";
+  compSeq = [];
+  $("#win").html("Winner");
+  $("#display").html("Win");
+  setTimeout(start, 2000);
+}
 //Set up sounds for each section
 
 var objBlue = document.createElement("audio");
