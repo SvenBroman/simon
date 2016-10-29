@@ -124,13 +124,10 @@ function gameTest() {
       console.log("Ok!");
       winCount++;
       turn = "simon";
-      if(winCount > 6){
+      if(count > 6){
         winner();
       }
       setTimeout(sequence, 500);
-     // if(winCount == 7){
-      //  winner();
-      //}
     }
   }
   }
@@ -140,7 +137,7 @@ function winner() {
   compSeq = [];
   $("#win").html("Winner");
   $("#display").html("Win");
-  setTimeout(start, 2000);
+  setTimeout(start, 3000);
 }
 //Set up sounds for each section
 
