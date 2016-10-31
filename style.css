@@ -2,17 +2,20 @@
   margin: auto;
   width: 460px;
   height: 460px;
-  border: 1px solid black;
+  border: 1px solid #343436;
   position: relative;
+  border-radius:230px;
+  margin-top:20px;
+  background:#343436;
 }
 
 #blue {
   width: 200px;
   height: 200px;
   background: #094A8F;
-  border: 10px solid black;
-  border-bottom: 20px solid;
-  border-right: 20px solid;
+  border: 10px solid #343436;
+  border-bottom: 20px solid #343436;
+  border-right: 20px solid #343436;
   border-radius: 0 0 220px 0;
   -moz-border-radius: 0 0 220px 0;
   -webkit-border-radius: 0 0 220px 0;
@@ -28,9 +31,9 @@
   width: 200px;
   height: 200px;
   background: #CCA707;
-  border: 10px solid black;
-  border-bottom: 20px solid;
-  border-left: 20px solid;
+  border: 10px solid  #343436;
+  border-bottom: 20px solid #343436;
+  border-left: 20px solid #343436;
   border-radius: 0 0 0 220px;
   -moz-border-radius: 0 0 0 220px;
   -webkit-border-radius: 0 0 0 220px;
@@ -44,9 +47,9 @@
   width: 200px;
   height: 200px;
   background: #9F0F17;
-  border: 10px solid black;
-  border-top: 20px solid;
-  border-right: 20px solid;
+  border: 10px solid #343436;
+  border-top: 20px solid #343436;
+  border-right: 20px solid #343436;
   border-radius: 0 220px 0 0;
   -moz-border-radius: 0 220px 0 0;
   -webkit-border-radius: 0 220px 0 0;
@@ -60,9 +63,9 @@ bottom:50%;
   width: 200px;
   height: 200px;
   background: green;
-  border: 10px solid black;
-  border-top: 20px solid;
-  border-left: 20px solid;
+  border: 10px solid #343436;
+  border-top: 20px solid #343436;
+  border-left: 20px solid #343436;
   border-radius: 220px 0 0 0;
   -moz-border-radius: 220px 0 0 0;
   -webkit-border-radius: 220px 0 0 0;
@@ -75,30 +78,33 @@ bottom:50%;
 .control {
   width: 200px;
   height: 200px;
-  border: 15px solid black;
+  border: 15px solid #343436;
   border-radius: 200px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  background-color: #AEAEAE;
+  background-color: #ECE7EE;
   margin-left: 115px;
 }
 
 h1 {
   text-align: center;
   font-size: 3em;
+  font-weight:bold;
 }
 
 #display {
   text-align: center;
-  width: 40px;
+  width: 50px;
   height: 40px;
   color: red;
   background-color: black;
   margin-left: 30px;
   border-radius: 5px;
   font-size: 2em;
+  margin-top:-20px
+  
 }
 
 button {
@@ -107,5 +113,47 @@ button {
   margin-top: 5px;
 }
 sup{
-  font-size:.5em;
+  font-size:.4em;
+}
+#start1{
+  width:18px;
+  height:18px;
+  background-color:red;
+  border-radius:18px;
+  border:5px solid black;
+  float:right;
+  margin-top:-50px;
+  margin-right:80px;
+  
+}
+#lab1{
+  text-align:center;
+  word-spacing:20px;
+  font-size:.7em;
+   
+}
+#strict{
+  width:18px;
+  height:18px;
+  background-color:yellow;
+  border-radius:18px;
+  border:5px solid black;
+  float:right;
+  margin-top:-50px;
+  margin-right:35px;
+  
+}
+#light{
+  width:5px;
+  height:5px;
+  background-color:#8E8271;
+  border-radius:5px;
+  border:1px solid black;
+  float:right;
+  margin-top:-60px;
+  margin-right:47px;
+  
+}
+p{
+  display:inline
 }
