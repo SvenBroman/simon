@@ -1,3 +1,4 @@
+var state = "off";
 var count = 0;
 var turn = "none";
 var playerScore = 0;
@@ -79,6 +80,20 @@ function start() {
  comArr = [];
  setTimeout(sequence, 200); 
   
+}
+function init(){
+  
+}
+function onOffSwitch(){
+  if(state == "off"){
+    $("#togSw").css("left", "50%");
+    $("#display").html("--");
+    state = "on";
+  }else{
+    $("#togSw").css("left", "0%");
+    $("#display").html("");
+    state = "off";
+  }
 }
 function sequence() {
   if(turn == "simon") {

@@ -1,15 +1,17 @@
 <div class="container">
   <div class="control">
     <h1 id="win">Simon<sup>&reg</sup></h1>
-    <div id="display">--</div>
+    <div id="display"></div>
     <div id="lab1">Count Start Strict</div>
     <div id="start1" onClick="start()"></div>
     <div id="strict"></div>
     <div id="light"></div>
     <div id="onOff">
-      <p>on</p>
-      <div id="switch"></div>
-      <p>off</p>
+      <p class="right">on</p>
+      <div id="switch" onClick="onOffSwitch()">
+        <div id="togSw"></div>
+      </div>
+      <p class="left">off</p>
     
     </div>
   </div>
