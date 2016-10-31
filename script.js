@@ -1,3 +1,4 @@
+var strict = "off";
 var state = "off";
 var count = 0;
 var turn = "none";
@@ -15,7 +16,15 @@ var a = 0;
 console.log(randMove);
 //Set up color changes for each section when clicked
 function mouseDownB() {
+  if(state == "started"){
   document.getElementById("blue").style.background = "blue";
+    objBlue.play();
+  playerSeq.push(colors[2]);
+  test++;
+  gameTest();
+  console.log("Player " + playerSeq);
+  console.log("Comp " + comArr);
+  }
 }
 
 function mouseUpB() {
@@ -23,7 +32,15 @@ function mouseUpB() {
 }
 
 function mouseDownR() {
+  if(state == "started"){
   document.getElementById("red").style.background = "red";
+ //  objRed.play();
+ // playerSeq.push(colors[0]);
+ // test++;
+ // gameTest();
+ // console.log("Player " + playerSeq);
+//  console.log("Comp " + comArr);
+  }
 }
 
 function mouseUpR() {
@@ -69,8 +86,40 @@ function triggerYellow() {
   setTimeout(mouseUpY, 300);
   objYellow.play();
 }
+function pressStart(){
+  if(state == "on"){
+  $("#start1").css("border", "3px solid");
+    state = "started";
+  }
+}
+function unPressStart(){
+  $("#start1").css("border", "5px solid");
+}
+function pressStrict(){
+  if(state == "on"){
+  $("#strict").css("border", "3px solid");
+    if(strict == "off"){
+    $("#light").css("background", "red");
+      strict = "on";
+    }else{
+      $("#light").css("background", "black");
+      strict = "off";
+    }
+  }
+}
+function unPressStrict(){
+  $("#strict").css("border", "5px solid");
+}
 function start() {
+  if(state == "started"){ 
+  init();  
+    state = "started";
+ setTimeout(sequence, 200); 
+  }
+}
+function init(){
   $("#win").html("Simon<sup>&reg</sup>");
+  $("#display").html("--");
   winCount = 0;
    count = 0;
  turn = "simon";
@@ -78,21 +127,19 @@ function start() {
  playerSeq = [];
  compSeq = [];
  comArr = [];
- setTimeout(sequence, 200); 
-  
-}
-function init(){
-  
+  state = "on";
 }
 function onOffSwitch(){
   if(state == "off"){
     $("#togSw").css("left", "50%");
     $("#display").html("--");
+    init();
     state = "on";
   }else{
     $("#togSw").css("left", "0%");
-    $("#display").html("");
+    init();
     state = "off";
+    $("#display").html("");
   }
 }
 function sequence() {
@@ -139,7 +186,7 @@ function gameTest() {
       console.log("Ok!");
       winCount++;
       turn = "simon";
-      if(count > 6){
+      if(count > 3){
         winner();
       }
       setTimeout(sequence, 500);
@@ -151,32 +198,33 @@ function winner() {
   turn = "end";
   compSeq = [];
   $("#win").html("Winner");
-  $("#display").html("Win");
-  setTimeout(start, 3000);
+ // $("#display").html("Win");
+  setTimeout(init, 3000);
 }
 //Set up sounds for each section
 
 var objBlue = document.createElement("audio");
 objBlue.src = "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3";
-$(".playSoundBlue").click(function() {
-  objBlue.play();
-  playerSeq.push(colors[2]);
-  test++;
-  gameTest();
-  console.log("Player " + playerSeq);
-  console.log("Comp " + comArr);
-});
+//$(".playSoundBlue").click(function() {
+ // objBlue.play();
+ // playerSeq.push(colors[2]);
+ // test++;
+ // gameTest();
+  //console.log("Player " + playerSeq);
+  //console.log("Comp " + comArr);
+//});
 
 var objRed = document.createElement("audio");
 objRed.src = "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3";
-$(".playSoundRed").click(function() {
-  objRed.play();
-  playerSeq.push(colors[0]);
-  test++;
-  gameTest();
-  console.log("Player " + playerSeq);
-  console.log("Comp " + comArr);
-});
+//$(".playSoundRed").click(function() {
+//   objRed.play();
+ // playerSeq.push(colors[0]);
+ // test++;
+ // gameTest();
+ // console.log("Player " + playerSeq);
+ // console.log("Comp " + comArr);
+ 
+//});
 var objGreen = document.createElement("audio");
 objGreen.src = "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3";
 $(".playSoundGreen").click(function() {

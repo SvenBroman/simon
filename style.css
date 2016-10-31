@@ -103,7 +103,8 @@ h1 {
   margin-left: 30px;
   border-radius: 5px;
   font-size: 2em;
-  margin-top:-20px
+  margin-top:-20px;
+  
   
 }
 
@@ -151,7 +152,7 @@ sup{
   border:1px solid black;
   float:right;
   margin-top:-60px;
-  margin-right:47px;
+  margin-right:45px;
   
 }
 p{
