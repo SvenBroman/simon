@@ -1,12 +1,18 @@
+
+body{
+ background-image:url("https://i.imgsafe.org/cbc0c93820.jpg");
+ 
+}
 .container {
   margin: auto;
-  width: 460px;
-  height: 460px;
-  border: 1px solid #343436;
+  width: 465px;
+  height: 465px;
+  border: 1px solid #464A49;
   position: relative;
   border-radius:230px;
   margin-top:20px;
   background:#343436;
+  box-shadow: 1px 0px 1px 4px rgba(0,0,0,0.6);
 }
 
 #blue {
@@ -86,12 +92,27 @@ bottom:50%;
   z-index: 2;
   background-color: #ECE7EE;
   margin-left: 115px;
+  
+}
+hold{
+  text-align: center;
+  font-size: 3.4em;
+  font-family:'Alfa Slab One';
+  font-weight:900;
 }
 
-h1 {
-  text-align: center;
-  font-size: 3em;
-  font-weight:bold;
+#win {
+  width:87%;
+  height:40px;
+  background:#ece7ee;
+  margin-top:40px;
+    background-image:url('https://i.imgsafe.org/cf54a12cb4.png');
+  background-size:175px;
+  background-repeat: no-repeat;
+  margin-left:13px;
+  margin-bottom:15px;
+  border-radius:20px 30px 0 0;
+  
 }
 
 #display {
@@ -103,7 +124,7 @@ h1 {
   margin-left: 30px;
   border-radius: 5px;
   font-size: 2em;
-  margin-top:-20px;
+  margin-top:10px;
   
   
 }
@@ -114,7 +135,7 @@ button {
   margin-top: 5px;
 }
 sup{
-  font-size:.4em;
+  font-size:.2em;
 }
 #start1{
   width:18px;
@@ -130,7 +151,11 @@ sup{
 #lab1{
   text-align:center;
   word-spacing:20px;
+  font-family:'Oswald';
   font-size:.7em;
+  margin-top: 5px;
+  
+  
    
 }
 #strict{
@@ -141,7 +166,7 @@ sup{
   border:5px solid black;
   float:right;
   margin-top:-50px;
-  margin-right:35px;
+  margin-right:40px;
   
 }
 #light{
@@ -152,7 +177,7 @@ sup{
   border:1px solid black;
   float:right;
   margin-top:-60px;
-  margin-right:45px;
+  margin-right:50px;
   
 }
 p{

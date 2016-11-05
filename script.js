@@ -10,6 +10,7 @@ var moves = [triggerRed, triggerGreen, triggerBlue, triggerYellow];
 var colors = [0, 1, 2, 3];
 var test = 0;
 var winCount = 0;
+var timer = 1000;
 //var colors = [red1, green2, blue3, yellow4];
 var randMove = Math.floor((Math.random() * 4) + 1);
 var a = 0;
@@ -18,12 +19,6 @@ console.log(randMove);
 function mouseDownB() {
   if(state == "started"){
   document.getElementById("blue").style.background = "blue";
-    objBlue.play();
-  playerSeq.push(colors[2]);
-  test++;
-  gameTest();
-  console.log("Player " + playerSeq);
-  console.log("Comp " + comArr);
   }
 }
 
@@ -34,12 +29,6 @@ function mouseUpB() {
 function mouseDownR() {
   if(state == "started"){
   document.getElementById("red").style.background = "red";
- //  objRed.play();
- // playerSeq.push(colors[0]);
- // test++;
- // gameTest();
- // console.log("Player " + playerSeq);
-//  console.log("Comp " + comArr);
   }
 }
 
@@ -48,7 +37,9 @@ function mouseUpR() {
 }
 
 function mouseDownG() {
+    if(state == "started"){
   document.getElementById("green").style.background = "#00A74A";
+    }
 }
 
 function mouseUpG() {
@@ -56,7 +47,9 @@ function mouseUpG() {
 }
 
 function mouseDownY() {
+    if(state == "started"){
   document.getElementById("yellow").style.background = "yellow";
+    }
 }
 
 function mouseUpY() {
@@ -87,7 +80,7 @@ function triggerYellow() {
   objYellow.play();
 }
 function pressStart(){
-  if(state == "on"){
+  if(state == "on" || state == "started"){
   $("#start1").css("border", "3px solid");
     state = "started";
   }
@@ -101,11 +94,14 @@ function pressStrict(){
     if(strict == "off"){
     $("#light").css("background", "red");
       strict = "on";
+      console.log(strict);
     }else{
       $("#light").css("background", "black");
       strict = "off";
+      console.log(strict);
     }
   }
+  //console.log(strict);
 }
 function unPressStrict(){
   $("#strict").css("border", "5px solid");
@@ -118,7 +114,7 @@ function start() {
   }
 }
 function init(){
-  $("#win").html("Simon<sup>&reg</sup>");
+  //$("#win").html("Simon<sup>&reg</sup>");
   $("#display").html("--");
   winCount = 0;
    count = 0;
@@ -152,8 +148,17 @@ function sequence() {
   comArr.push(colors[x]);
 
   count++;
+    if(count > 4){
+      timer = 850;
+    }
+    if(count > 8){
+      timer = 750;
+    }
+    if(count > 12){
+      timer = 600;
+    }
   for (var i = 0; i <= count; i++) {
-    setTimeout(compSeq[i], a += 1000);
+    setTimeout(compSeq[i], a += timer);
   }
   console.log("compSeq " + compSeq[i]);
   $("#display").html(count);
@@ -166,12 +171,19 @@ function rePlayMoves() {
   a = 0;
   $("#display").html(count);
   for (var i = 0; i <= count; i++) {
-    setTimeout(compSeq[i], a += 1000);
+    setTimeout(compSeq[i], a += timer);
     turn = "player";
     playerSeq = [];
 
   }
 
+}
+function strictYesNo(){
+    if(strict == "on"){
+        setTimeout(start , 800);
+    }else{
+        setTimeout(rePlayMoves, 800);
+    }
 }
 
 function gameTest() {
@@ -181,12 +193,14 @@ function gameTest() {
       $("#display").html("!!!");
       console.log("Error");
       turn = "simonReplay";
-      setTimeout(rePlayMoves, 800);
+      //setTimeout(rePlayMoves, 800);
+      strictYesNo();
     } else if (playerSeq.length == comArr.length) {
       console.log("Ok!");
       winCount++;
       turn = "simon";
-      if(count > 3){
+      console.log("Win count = "+winCount);
+      if(count >= 20 && playerSeq[playerSeq.length-1] == comArr[comArr.length-1]){
         winner();
       }
       setTimeout(sequence, 500);
@@ -195,55 +209,69 @@ function gameTest() {
   }
 }
 function winner() {
+ 
   turn = "end";
   compSeq = [];
-  $("#win").html("Winner");
- // $("#display").html("Win");
-  setTimeout(init, 3000);
+  //$("#win").html("Winner");
+  $("#display").html("**");
+  state = "on";
+  //winBlink();
+ // setTimeout(init, 3000);
 }
+//function winBlink(){
+ // var z = compSeq.length-1;
+  //setTimeout(compSeq[z], 200);
+//}
 //Set up sounds for each section
 
 var objBlue = document.createElement("audio");
 objBlue.src = "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3";
-//$(".playSoundBlue").click(function() {
- // objBlue.play();
- // playerSeq.push(colors[2]);
- // test++;
- // gameTest();
-  //console.log("Player " + playerSeq);
-  //console.log("Comp " + comArr);
-//});
+$(".playSoundBlue").click(function() {
+    if(state == "started"){
+  objBlue.play();
+  playerSeq.push(colors[2]);
+  test++;
+  gameTest();
+  console.log("Player " + playerSeq);
+  console.log("Comp " + comArr);
+    }
+});
 
 var objRed = document.createElement("audio");
 objRed.src = "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3";
-//$(".playSoundRed").click(function() {
-//   objRed.play();
- // playerSeq.push(colors[0]);
- // test++;
- // gameTest();
- // console.log("Player " + playerSeq);
- // console.log("Comp " + comArr);
- 
-//});
+$(".playSoundRed").click(function() {
+    if(state == "started"){
+   objRed.play();
+  playerSeq.push(colors[0]);
+  test++;
+  gameTest();
+  console.log("Player " + playerSeq);
+  console.log("Comp " + comArr);
+    }
+});
 var objGreen = document.createElement("audio");
 objGreen.src = "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3";
 $(".playSoundGreen").click(function() {
+    if(state == "started"){
   objGreen.play();
   playerSeq.push(colors[1]);
   test++;
   gameTest();
   console.log("Player " + playerSeq);
   console.log("Comp " + comArr);
+    }
 });
 var objYellow = document.createElement("audio");
 objYellow.src = "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3";
 $(".playSoundYellow").click(function() {
+    if(state == "started"){
   objYellow.play();
   playerSeq.push(colors[3]);
   test++;
   gameTest();
   console.log("Player " + playerSeq);
   console.log("Comp " + comArr);
+    }
 });
 
 // });
